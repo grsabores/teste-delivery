@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tempero de Mãe – Comida Caseira e Saborosa Direto na Sua Casa!</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#E63946',
+                        secondary: '#F1C40F',
+                        accent: '#F77F00',
+                        dark: '#2B2D42',
+                        light: '#F8F9FA'
+                    },
+                    fontFamily: {
+                        sans: ['Nunito', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap');
+        
+        body {
+            font-family: 'Nunito', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        .hero-section {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .dish-card {
+            transition: all 0.3s ease;
+        }
+        
+        .dish-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .floating-button {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        
+        .testimonial-card {
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-light">
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/5511999999999" target="_blank" class="fixed bottom-6 right-6 bg-green-500 text-white w-14 h-14 rounded-full flex items-center justify-center text-2xl z-50 floating-button">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Header/Navigation -->
+    <header class="bg-white shadow-md sticky top-0 z-40">
+        <nav class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <i class="fas fa-utensils text-3xl text-primary"></i>
+                <span class="text-xl font-bold text-dark">Tempero de Mãe</span>
+            </div>
+            <div class="hidden md:flex space-x-6">
+                <a href="#cardapio" class="text-dark hover:text-primary font-medium">Cardápio</a>
+                <a href="#combos" class="text-dark hover:text-primary font-medium">Combos</a>
+                <a href="#pedido" class="text-dark hover:text-primary font-medium">Meu Pedido</a>
+                <a href="#entrega" class="text-dark hover:text-primary font-medium">Entrega</a>
+            </div>
+            <button class="md:hidden text-dark text-2xl" id="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+        
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden bg-white w-full px-4 py-2 shadow-md" id="mobile-menu">
+            <a href="#cardapio" class="block py-2 text-dark hover:text-primary">Cardápio</a>
+            <a href="#combos" class="block py-2 text-dark hover:text-primary">Combos</a>
+            <a href="#pedido" class="block py-2 text-dark hover:text-primary">Meu Pedido</a>
+            <a href="#entrega" class="block py-2 text-dark hover:text-primary">Entrega</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section text-white py-20 md:py-32 px-4 text-center">
+        <div class="container mx-auto max-w-4xl">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4">Bem-vindo(a) ao Tempero de Mãe!</h1>
+            <p class="text-xl md:text-2xl mb-8">Marmitas caseiras, fresquinhas e feitas com amor. Receba direto na sua casa ou trabalho!</p>
+            <a href="#cardapio" class="bg-primary hover:bg-red-700 text-white font-bold py-3 px-8 rounded-full text-lg inline-flex items-center transition duration-300">
+                <i class="fas fa-mobile-alt mr-2"></i> Fazer Pedido
+            </a>
+        </div>
+    </section>
+
+    <!-- Cardápio Section -->
+    <section id="cardapio" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-dark mb-12">Veja nosso cardápio da semana!</h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Monday -->
+                <div class="dish-card bg-white rounded-lg overflow-hidden shadow-lg border border-gray-100">
+                    <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Frango grelhado" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-dark mb-2">Segunda-feira</h3>
+                        <p class="text-gray-700 mb-4">Frango grelhado + arroz + feijão + salada</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-lg font-bold text-primary">R$ 24,90</span>
+                            <div class="flex items-center space-x-2">
+                                <button class="quantity-btn bg-gray-200 text-dark w-8 h-8 rounded-full flex items-center justify-center" onclick="updateQuantity('segunda', -1)">-</button>
+                                <span id="segunda-quantity" class="font-medium">0</span>
+                                <button class="quantity-btn bg-primary text-white w-8 h-8 rounded-full flex items-center justify-center" onclick="updateQuantity('segunda', 1)">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Tuesday -->
+                <div class="dish-card bg-white rounded-lg overflow-hidden shadow-lg border border-gray-100">
+                    <img src="https://images.unsplash.com/photo-1626804475297-41608ea09aeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Bife acebolado" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-dark mb-2">Terça-feira</h3>
+                        <p class="text-gray-700 mb-4">Bife acebolado + arroz + feijão tropeiro + vinagrete</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-lg font-bold text-primary">R$ 26,90</span>
+                            <div class="flex items-center space-x-2">
+                                <button class="quantity-btn bg-gray-200 text-dark w-8 h-8 rounded-full flex items-center justify-center" onclick="updateQuantity('terca', -1)">-</button>
+                                <span id="terca-quantity" class="font-medium">0</span>
+                                <button class="quantity-btn bg-primary text-white w-8 h-8 rounded-full flex items-center justify-center" onclick="updateQuantity('terca', 1)">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Wednesday -->
+                <div class="dish-card bg-white rounded-lg overflow-hidden shadow-lg border border-gray-100">
+                    <img src="https://images.unsplash.com/photo-1625398407796-82650a8c135f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Peixe assado" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-dark mb-2">Quarta-feira</h3>
+                        <p class="text-gray-700 mb-4">Peixe assado + arroz integral + legumes grelhados + purê</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-lg font-bold text-primary">R$ 28,90</span>
+                            <div class="flex items-center space-x-2">
+                                <button class="quantity-btn bg-gray-200 text-dark w-8 h-8 rounded-full flex items-center justify-center" onclick="updateQuantity('quarta', -1)">-</button>
+                                <span id="quarta-quantity" class="font-medium">0</span>
+                                <button class="quantity-btn bg-primary text-white w-8 h-8 rounded-full flex items-center justify-center" onclick="updateQuantity('quarta', 1)">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Thursday -->
+                <div class="dish-card bg-white rounded-lg overflow-hidden shadow-lg border border-gray-100">
+                    <img src="https://images.unsplash.com/photo-1603105037880-880cd4edfb0d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Lasanha" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-dark mb-2">Quinta-feira</h3>
+                        <p class="text-gray-700 mb-4">Lasanha à bolonhesa + salada caprese + pão de alho</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-lg font-bold text-primary">R$ 29,90</span>
+                            <div class="flex items-center space-x-2">
+                                <button class="quantity-btn bg-gray-200 text-dark w-8 h-8 rounded-full flex items-center justify-center" onclick="updateQuantity('quinta', -1)">-</button>
+                                <span id="quinta-quantity" class="font-medium">0</span>
+                                <button class="quantity-btn bg-primary text-white w-8 h-8 rounded-full flex items-center justify-center" onclick="updateQuantity('quinta', 1)">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Friday -->
+                <div class="dish-card bg-white rounded-lg overflow-hidden shadow-lg border border-gray-100">
+                    <img src="https://images.unsplash.com/photo-1559847844-5315695dadae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1198&q=80" alt="Feijoada" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-dark mb-2">Sexta-feira</h3>
+                        <p class="text-gray-700 mb-4">Feijoada completa + arroz + couve + farofa + laranja</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-lg font-bold text-primary">R$ 32,90</span>
+                            <div class="flex items-center space-x-2">
+                                <button class="quantity-btn bg-gray-200 text-dark w-8 h-8 rounded-full flex items-center justify-center" onclick="updateQuantity('sexta', -1)">-</button>
+                                <span id="sexta-quantity" class="font-medium">0</span>
+                                <button class="quantity-btn bg-primary text-white w-8 h-8 rounded-full flex items-center justify-center" onclick="updateQuantity('sexta', 1)">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Saturday -->
+                <div class="dish-card bg-white rounded-lg overflow-hidden shadow-lg border border-gray-100">
+                    <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Strogonoff" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-dark mb-2">Sábado</h3>
+                        <p class="text-gray-700 mb-4">Strogonoff de frango + arroz + batata palha + salada</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-lg font-bold text-primary">R$ 27,90</span>
+                            <div class="flex items-center space-x-2">
+                                <button class="quantity-btn bg-gray-200 text-dark w-8 h-8 rounded-full flex items-center justify-center" onclick="updateQuantity('sabado', -1)">-</button>
+                                <span id="sabado-quantity" class="font-medium">0</span>
+                                <button class="quantity-btn bg-primary text-white w-8 h-8 rounded-full flex items-center justify-center" onclick="updateQuantity('sabado', 1)">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Combos Section -->
+    <section id="combos" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-dark mb-12">Economize com nossos combos!</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <div class="bg-white rounded-lg shadow-lg p-8 border-2 border-green-500 transform hover:scale-105 transition duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-green-100 text-green-800 rounded-full w-10 h-10 flex items-center justify-center mr-3">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-dark">Combo Casal</h3>
+                    </div>
+                    <p class="text-gray-700 mb-4">2 pratos do cardápio + 2 sobremesas + 2 bebidas</p>
+                    <div class="flex items-center mb-4">
+                        <span class="text-2xl font-bold text-green-500">50% OFF</span>
+                        <span class="text-gray-500 line-through ml-2">R$ 59,80</span>
+                    </div>
+                    <p class="text-green-600 mb-4"><i class="fas fa-check-circle mr-2"></i> Inclui entrega grátis</p>
+                    <p class="text-green-600 mb-6"><i class="fas fa-check-circle mr-2"></i> Sobremesa grátis!</p>
+                    <a href="#pedido" class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-full text-lg w-full block text-center transition duration-300">
+                        <i class="fas fa-shopping-cart mr-2"></i> Pedir Combo
+                    </a>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-lg p-8 border-2 border-primary transform hover:scale-105 transition duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-red-100 text-primary rounded-full w-10 h-10 flex items-center justify-center mr-3">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-dark">Combo Família</h3>
+                    </div>
+                    <p class="text-gray-700 mb-4">4 pratos do cardápio + 4 sobremesas + 4 bebidas</p>
+                    <div class="flex items-center mb-4">
+                        <span class="text-2xl font-bold text-primary">40% OFF</span>
+                        <span class="text-gray-500 line-through ml-2">R$ 119,60</span>
+                    </div>
+                    <p class="text-primary mb-4"><i class="fas fa-check-circle mr-2"></i> Entrega grátis</p>
+                    <p class="text-primary mb-6"><i class="fas fa-check-circle mr-2"></i> 2 sobremesas grátis!</p>
+                    <a href="#pedido" class="bg-primary hover:bg-red-700 text-white font-bold py-3 px-6 rounded-full text-lg w-full block text-center transition duration-300">
+                        <i class="fas fa-shopping-cart mr-2"></i> Pedir Combo
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Meu Pedido Section -->
+    <section id="pedido" class="py-16 bg-white">
+        <div class="container mx-auto px-4 max-w-4xl">
+            <h2 class="text-3xl font-bold text-center text-dark mb-12">Meu Pedido</h2>
+            
+            <div class="bg-gray-50 rounded-lg shadow-md p-6 mb-8">
+                <h3 class="text-xl font-bold text-dark mb-4">Itens selecionados</h3>
+                <div id="order-items" class="mb-6">
+                    <p class="text-gray-500 text-center py-4">Nenhum item adicionado ainda.</p>
+                </div>
+                
+                <div class="border-t border-gray-200 pt-4">
+                    <div class="flex justify-between mb-2">
+                        <span class="font-medium">Subtotal:</span>
+                        <span id="subtotal" class="font-medium">R$ 0,00</span>
+                    </div>
+                    <div class="flex justify-between mb-2">
+                        <span class="font-medium">Entrega:</span>
+                        <span class="font-medium text-green-500">Grátis</span>
+                    </div>
+                    <div class="flex justify-between text-xl font-bold mt-4">
+                        <span>Total:</span>
+                        <span id="total" class="text-primary">R$ 0,00</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-4">
+                <button onclick="copyOrder()" class="bg-primary hover:bg-red-700 text-white font-bold py-3 px-6 rounded-full text-lg transition duration-300">
+                    <i class="fas fa-copy mr-2"></i> Copiar Pedido
+                </button>
+                <a href="#pix" class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-full text-lg text-center transition duration-300">
+                    <i class="fas fa-qrcode mr-2"></i> Pagar com PIX
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pagamento via PIX Section -->
+    <section id="pix" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4 max-w-4xl">
+            <h2 class="text-3xl font-bold text-center text-dark mb-12">Pagamento via PIX</h2>
+            
+            <div class="bg-white rounded-lg shadow-md p-8">
+                <div class="flex flex-col md:flex-row items-center mb-8">
+                    <div class="md:w-1/2 mb-6 md:mb-0 md:pr-6">
+                        <h3 class="text-xl font-bold text-dark mb-4">Instruções para pagamento:</h3>
+                        <ol class="list-decimal list-inside space-y-2 text-gray-700">
+                            <li>Abra o aplicativo do seu banco</li>
+                            <li>Selecione a opção PIX</li>
+                            <li>Escolha "Pagar com QR Code"</li>
+                            <li>Aponte a câmera para o código ao lado</li>
+                            <li>Confirme o pagamento</li>
+                        </ol>
+                    </div>
+                    <div class="md:w-1/2 flex justify-center">
+                        <div class="bg-gray-200 p-4 rounded-lg">
+                            <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=TemperoDeMaePIX123456" alt="QR Code PIX" class="w-48 h-48">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mb-6">
+                    <h3 class="text-xl font-bold text-dark mb-4">Chave PIX (CNPJ):</h3>
+                    <div class="flex items-center bg-gray-100 p-4 rounded-lg">
+                        <span id="pix-key" class="font-mono flex-grow">12.345.678/0001-90</span>
+                        <button onclick="copyPixKey()" class="bg-primary hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full text-sm transition duration-300">
+                            <i class="fas fa-copy mr-1"></i> Copiar
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-6">
+                    <div class="flex">
+                        <div class="flex-shrink-0">
+                            <i class="fas fa-exclamation-circle text-yellow-400"></i>
+                        </div>
+                        <div class="ml-3">
+                            <p class="text-sm text-yellow-700">
+                                Após o pagamento, envie o comprovante para nosso WhatsApp para liberarmos seu pedido!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <a href="https://wa.me/5511999999999" target="_blank" class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-full text-lg w-full block text-center transition duration-300">
+                    <i class="fab fa-whatsapp mr-2"></i> Enviar Comprovante
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Entrega Section -->
+    <section id="entrega" class="py-16 bg-white">
+        <div class="container mx-auto px-4 max-w-4xl">
+            <h2 class="text-3xl font-bold text-center text-dark mb-12">Entrega</h2>
+            
+            <div class="bg-gray-50 rounded-lg shadow-md p-8 mb-8">
+                <div class="mb-6">
+                    <h3 class="text-xl font-bold text-dark mb-4">Verifique se entregamos na sua região</h3>
+                    <div class="flex flex-col md:flex-row gap-4">
+                        <input type="text" id="cep" placeholder="Digite seu CEP (apenas números)" class="flex-grow p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+                        <button onclick="checkDelivery()" class="bg-primary hover:bg-red-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300">
+                            Verificar
+                        </button>
+                    </div>
+                </div>
+                
+                <div id="delivery-result" class="hidden">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-check-circle text-green-500 text-2xl mr-2"></i>
+                        <span class="text-lg font-bold">Entregamos em sua região!</span>
+                    </div>
+                    <p class="text-gray-700 mb-4"><i class="fas fa-clock mr-2"></i> Tempo estimado: <span class="font-medium">20-25 minutos</span></p>
+                    <p class="text-green-500 font-medium"><i class="fas fa-truck mr-2"></i> Valor de entrega: <span class="font-bold">Grátis</span></p>
+                </div>
+                
+                <div id="map" class="mt-8 h-64 bg-gray-200 rounded-lg overflow-hidden hidden">
+                    <!-- Map will be shown here -->
+                    <iframe id="map-iframe" width="100%" height="100%" frameborder="0" style="border:0" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Avaliações Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-dark mb-12">O que nossos clientes dizem</h2>
+            <p class="text-center text-gray-600 mb-12">Baseado em 727 avaliações <i class="fas fa-star text-yellow-400"></i><i class="fas fa-star text-yellow-400"></i><i class="fas fa-star text-yellow-400"></i><i class="fas fa-star text-yellow-400"></i><i class="fas fa-star text-yellow-400"></i></p>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card bg-white p-6 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-white font-bold text-xl mr-4">A</div>
+                        <div>
+                            <h4 class="font-bold">Ana</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-700">"Comida deliciosa, parece da minha mãe! Sempre peço e nunca me decepciona."</p>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card bg-white p-6 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-accent flex items-center justify-center text-white font-bold text-xl mr-4">L</div>
+                        <div>
+                            <h4 class="font-bold">Lucas</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-700">"Entrega rápida e comida quentinha. O combo casal é perfeito para nós!"</p>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card bg-white p-6 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-secondary flex items-center justify-center text-white font-bold text-xl mr-4">M</div>
+                        <div>
+                            <h4 class="font-bold">Mariana</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-700">"Adoro a feijoada de sexta! Faz lembrar a da minha avó. Recomendo muito!"</p>
+                </div>
+                
+                <!-- Testimonial 4 -->
+                <div class="testimonial-card bg-white p-6 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-green-500 flex items-center justify-center text-white font-bold text-xl mr-4">C</div>
+                        <div>
+                            <h4 class="font-bold">Carlos</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-700">"Como todo dia no trabalho e nunca enjoa. Variedade ótima e preço justo."</p>
+                </div>
+                
+                <!-- Testimonial 5 -->
+                <div class="testimonial-card bg-white p-6 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-blue-500 flex items-center justify-center text-white font-bold text-xl mr-4">J</div>
+                        <div>
+                            <h4 class="font-bold">Juliana</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-700">"Sou nutricionista e aprovo! Comida caseira, balanceada e muito saborosa."</p>
+                </div>
+                
+                <!-- Testimonial 6 -->
+                <div class="testimonial-card bg-white p-6 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-purple-500 flex items-center justify-center text-white font-bold text-xl mr-4">R</div>
+                        <div>
+                            <h4 class="font-bold">Roberto</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-700">"Melhor custo-benefício da região. Peço toda semana e sempre atende expectativas."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-8">
+                <div class="flex items-center space-x-2 mb-6 md:mb-0">
+                    <i class="fas fa-utensils text-3xl text-primary"></i>
+                    <span class="text-2xl font-bold">Tempero de Mãe</span>
+                </div>
+                
+                <div class="flex space-x-6 mb-6 md:mb-0">
+                    <a href="#" class="text-white hover:text-primary text-2xl">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="text-white hover:text-primary text-2xl">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="https://wa.me/5511999999999" class="text-white hover:text-primary text-2xl">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+                
+                <div class="bg-primary text-white px-4 py-2 rounded-full font-bold">
+                    <i class="fas fa-clock mr-2"></i> Aberto 24 horas!
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 pt-8">
+                <div class="flex flex-col md:flex-row justify-between">
+                    <div class="mb-6 md:mb-0">
+                        <h4 class="font-bold text-lg mb-4">Contato</h4>
+                        <p class="mb-2"><i class="fas fa-phone-alt mr-2"></i> (11) 98880-2090</p>
+                        <p><i class="fas fa-envelope mr-2"></i> contato@temperodemae.com</p>
+                    </div>
+                    
+                    <div class="mb-6 md:mb-0">
+                        <h4 class="font-bold text-lg mb-4">Endereço</h4>
+                        <p><i class="fas fa-map-marker-alt mr-2"></i> Rua das Delícias, 123 - São Paulo/SP</p>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-bold text-lg mb-4">Formas de Pagamento</h4>
+                        <div class="flex space-x-2">
+                            <i class="fab fa-cc-visa text-2xl"></i>
+                            <i class="fab fa-cc-mastercard text-2xl"></i>
+                            <i class="fab fa-cc-pix text-2xl"></i>
+                            <i class="fas fa-money-bill-wave text-2xl"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-8 pt-6 border-t border-gray-700">
+                <p>&copy; 2023 Tempero de Mãe. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Order functionality
+        const prices = {
+            segunda: 24.90,
+            terca: 26.90,
+            quarta: 28.90,
+            quinta: 29.90,
+            sexta: 32.90,
+            sabado: 27.90
+        };
+
+        const quantities = {
+            segunda: 0,
+            terca: 0,
+            quarta: 0,
+            quinta: 0,
+            sexta: 0,
+            sabado: 0
+        };
+
+        function updateQuantity(day, change) {
+            const newQuantity = quantities[day] + change;
+            if (newQuantity >= 0) {
+                quantities[day] = newQuantity;
+                document.getElementById(`${day}-quantity`).textContent = newQuantity;
+                updateOrder();
+            }
+        }
+
+        function updateOrder() {
+            const orderItems = document.getElementById('order-items');
+            let hasItems = false;
+            let subtotal = 0;
+            
+            // Clear current items
+            orderItems.innerHTML = '';
+            
+            // Add each item that has quantity > 0
+            for (const day in quantities) {
+                if (quantities[day] > 0) {
+                    hasItems = true;
+                    const itemTotal = quantities[day] * prices[day];
+                    subtotal += itemTotal;
+                    
+                    const itemDiv = document.createElement('div');
+                    itemDiv.className = 'flex justify-between items-center py-3 border-b border-gray-200';
+                    
+                    const dayNames = {
+                        segunda: 'Segunda',
+                        terca: 'Terça',
+                        quarta: 'Quarta',
+                        quinta: 'Quinta',
+                        sexta: 'Sexta',
+                        sabado: 'Sábado'
+                    };
+                    
+                    itemDiv.innerHTML = `
+                        <div>
+                            <span class="font-medium">${dayNames[day]}</span>
+                            <span class="text-gray-600 text-sm block">${quantities[day]} x R$ ${prices[day].toFixed(2)}</span>
+                        </div>
+                        <div class="font-bold text-primary">R$ ${itemTotal.toFixed(2)}</div>
+                    `;
+                    
+                    orderItems.appendChild(itemDiv);
+                }
+            }
+            
+            if (!hasItems) {
+                orderItems.innerHTML = '<p class="text-gray-500 text-center py-4">Nenhum item adicionado ainda.</p>';
+            }
+            
+            // Update totals
+            document.getElementById('subtotal').textContent = `R$ ${subtotal.toFixed(2)}`;
+            document.getElementById('total').textContent = `R$ ${subtotal.toFixed(2)}`;
+        }
+
+        function copyOrder() {
+            let orderText = "Pedido Tempero de Mãe:\n\n";
+            let hasItems = false;
+            
+            for (const day in quantities) {
+                if (quantities[day] > 0) {
+                    hasItems = true;
+                    const dayNames = {
+                        segunda: 'Segunda',
+                        terca: 'Terça',
+                        quarta: 'Quarta',
+                        quinta: 'Quinta',
+                        sexta: 'Sexta',
+                        sabado: 'Sábado'
+                    };
+                    orderText += `${dayNames[day]}: ${quantities[day]} un.\n`;
+                }
+            }
+            
+            if (hasItems) {
+                orderText += "\nTotal: " + document.getElementById('total').textContent;
+                navigator.clipboard.writeText(orderText).then(() => {
+                    alert("Pedido copiado para a área de transferência!");
+                });
+            } else {
+                alert("Adicione itens ao seu pedido primeiro!");
+            }
+        }
+
+        function copyPixKey() {
+            const pixKey = document.getElementById('pix-key').textContent;
+            navigator.clipboard.writeText(pixKey).then(() => {
+                alert("Chave PIX copiada para a área de transferência!");
+            });
+        }
+
+        function checkDelivery() {
+            const cep = document.getElementById('cep').value;
+            if (cep.length === 8 && /^\d+$/.test(cep)) {
+                document.getElementById('delivery-result').classList.remove('hidden');
+                document.getElementById('map').classList.remove('hidden');
+                
+                // Update map with the CEP (this is a simplified example)
+                const mapIframe = document.getElementById('map-iframe');
+                mapIframe.src = `https://www.google.com/maps/embed/v1/place?key=YOUR_API_KEY&q=${cep},Brazil`;
+                
+                // In a real app, you would check if the CEP is in your delivery area
+            } else {
+                alert("Por favor, digite um CEP válido (8 dígitos, apenas números)");
+            }
+        }
+
+        // Initialize with no items in order
+        updateOrder();
+    </script>
+<p style="border-radius: 8px; text-align: center; font-size: 12px; color: #fff; margin-top: 16px;position: fixed; left: 8px; bottom: 8px; z-index: 10; background: rgba(0, 0, 0, 0.8); padding: 4px 8px;">Made with <img src="https://enzostvs-deepsite.hf.space/logo.svg" alt="DeepSite Logo" style="width: 16px; height: 16px; vertical-align: middle;display:inline-block;margin-right:3px;filter:brightness(0) invert(1);"><a href="https://enzostvs-deepsite.hf.space" style="color: #fff;text-decoration: underline;" target="_blank" >DeepSite</a> - 🧬 <a href="https://enzostvs-deepsite.hf.space?remix=grsabores/meu-site-incrivel" style="color: #fff;text-decoration: underline;" target="_blank" >Remix</a></p></body>
+</html>
